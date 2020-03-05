@@ -27,13 +27,60 @@ $background-color: rgb(44, 44, 44);
   justify-content: flex-end;
 }
 
+.navigation {
+  color: white;
+  margin-left: 1%;
+  margin-top: 1%;
+  font-size: 1.4em;
+}
+.navigationTitle {
+  margin-bottom: 0;
+  margin-top: 1%;
+}
+
+.navigation:hover .navigationTitle{
+  opacity: .4;
+}
+
+.navigation-dropdown {
+  display: none;
+}
+
+.navigation:hover .navigation-dropdown {
+  @extend %background-boxes;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 8vw;
+  animation-name: navBarMaker;
+  animation-duration: .3s;
+}
+
+.navigation:hover .links{
+  animation-name: navBarInvisible;
+  animation-duration: .32s;
+}
+
+.links {
+  text-decoration: none;
+  font-size: 1.4em;
+  margin-top: 2%;
+  color: white;
+  opacity: .8;
+}
+
+.links:hover {
+  opacity: 1;
+}
+
 .hamburgerBar {
   grid-area: navBar;
+  margin-left: 1%;
 }
 
 .clockBox {
   @extend %background-boxes;
   margin-right: 1%;
+  width: 15vw;
 }
 
 .clock {
@@ -48,6 +95,7 @@ $background-color: rgb(44, 44, 44);
 
 .content {
   grid-area: contenta;
+  @extend %center-things
 }
 
 .overallDiv {
@@ -60,4 +108,34 @@ $background-color: rgb(44, 44, 44);
     "navBar title headera"
     "contenta contenta contenta"
     ;
+}
+
+@keyframes navBarMaker {
+  0% {
+    height: 0vh;
+  }
+  100% {
+    height: 25vh;
+  }
+}
+
+@keyframes navBarInvisible {
+  0% {
+    opacity: 0;
+  }
+  99% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes navBarTitleDim {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: .2;
+  }
 }

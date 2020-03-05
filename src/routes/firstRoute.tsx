@@ -20,7 +20,17 @@ const FirstRoute: React.FC<passProps> = (props: passProps) => {
     return (
         <div className='overallDiv'>
             <div className='hamburgerBar'>
-                <Link to="/second">Second </Link>
+                <div className='navigation'>
+                    <h2 className='navigationTitle'>Navigation</h2>
+                    <div className='navigation-dropdown'>
+                        <Link to="/second" className='links'>Second </Link>
+                        <Link to="/second" className='links'>Third </Link>
+                        <Link to="/second" className='links'>Fourth </Link>
+                        <Link to="/second" className='links'>Fifth </Link>
+                        <Link to="/second" className='links'>Sixth </Link>
+                    </div>
+                </div>
+
             </div>
             <div className='title'>
                 Title
@@ -33,7 +43,9 @@ const FirstRoute: React.FC<passProps> = (props: passProps) => {
                 </div>
             </div>
             <div className='content'>
-                content
+                <div>
+                    Hello
+                </div>
             </div>
         </div>
     )
