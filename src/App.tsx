@@ -20,11 +20,17 @@ var myProps: passProps = {
   numArray: [0, 6, 3, 2, 5, 4]
 }
 
-const App: React.FC<passProps> = () => {
+var mySecondProps: passProps = {
+  name: 'hello',
+  age: 6,
+  numArray: [0, 6, 3, 2, 5, 4]
+}
+
+const App: React.FC = () => {
   return (
     <>
       <Router>
-        <Route exact path="/" render={ () => <FirstRoute user={myProps}/> } />
+        <Route exact path="/" render={ () => <FirstRoute {...myProps} {...mySecondProps}/> } />
         <Route exact path="/second" render={() => <SecondRoute /> } />  
       </Router>
     </>

@@ -14,6 +14,7 @@ const FirstRoute: React.FC<passProps> = (props: passProps) => {
         setInterval( () => {
             setTime(new Date())
         }, 1000)
+        console.log(props)
     }, [])
 
     return (
