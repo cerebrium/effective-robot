@@ -1,45 +1,63 @@
-.overallDiv {
-  background-color: #2c2c2c;
+// variables
+$background-color: rgb(44, 44, 44);
+%overall-divs {
+  background-color: $background-color;
   height: 100vh;
   width: 100vw;
 }
-.clock {
+
+%center-things {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.clockBox {
+
+%background-boxes {
   background-color: black;
-  opacity: 0.8;
+  opacity: .8;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 5%;
 }
+
 .header {
   grid-area: headera;
   display: flex;
   justify-content: flex-end;
 }
+
 .hamburgerBar {
   grid-area: navBar;
 }
+
 .clockBox {
+  @extend %background-boxes;
   margin-right: 1%;
 }
+
 .clock {
+  @extend %center-things;
   color: white;
 }
+
 .title {
   font-size: 2em;
   grid-area: title;
 }
+
 .content {
   grid-area: contenta;
 }
+
 .overallDiv {
+  @extend %overall-divs;
   display: grid;
   grid-template-rows: 1% 5% 94%;
   grid-template-columns: 45vw 10vw 45vw;
-  grid-template-areas: "none none none" "navBar title headera" "contenta contenta contenta";
+  grid-template-areas: 
+    "none none none"
+    "navBar title headera"
+    "contenta contenta contenta"
+    ;
 }

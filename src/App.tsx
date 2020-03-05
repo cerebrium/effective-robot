@@ -1,25 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import './App.scss';
+import {
+  BrowserRouter as Router, 
+  Route,
+  Link
+} from "react-router-dom"
+import FirstRoute from './routes/firstRoute'
+import SecondRoute from './routes/secondRoute'
 
-function App() {
+export interface passProps {
+  name: String,
+  age: Number,
+  numArray: Array<Number>
+}
+
+var myProps: passProps = {
+  name: 'hello',
+  age: 6,
+  numArray: [0, 6, 3, 2, 5, 4]
+}
+
+const App: React.FC<passProps> = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Router>
+        <Route exact path="/" render={ () => <FirstRoute user={myProps}/> } />
+        <Route exact path="/second" render={() => <SecondRoute /> } />  
+      </Router>
+    </>
   );
 }
 
